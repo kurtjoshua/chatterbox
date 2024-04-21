@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatterbox</title>
+    <link rel="shortcut icon" href="chatterbox.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Poppins", sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            width: 100vw;
+        }
+        header {
+            display: flex;
+            align-items: center;
+            user-select: none;
+        }
+        header img {
+            max-width: 140px;
+            cursor: pointer;
+            
+        }
+        header h1 {
+            font-family: "Orbitron", sans-serif;
+        }
+        .container {
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+        }
+        .login-form {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 8px;
+            filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.2));
+        }
+        .login-form h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333333;
+        }
+        .input-container {
+            margin-bottom: 20px;
+        }
+        .input-container input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        #togglePassword {
+            position: absolute;
+            left: 112px;
+            top: 58%;
+            transform: translateY(-50%);
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+            font-size: 20px;
+            color: #cccccc;
+            outline: none;
+        }
+        .remember-me {
+            margin-top: 10px;
+        }
+        .remember-me input[type="checkbox"] {
+            margin-right: 5px;
+        }
+        .remember-me label {
+            font-size: 14px;
+            color: #666666;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            user-select: none;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        footer p {
+            text-align: center;
+        }
+        @media screen and (max-width: 400px) {
+            header img {
+                width: 65px;
+            }
+            header h1 {
+                font-size: 1.5rem;
+            }
+            #togglePassword {
+                left: 102px;
+            }
+        }
+        @media screen and (max-width: 350px) {
+            #togglePassword {
+                left: 75px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="chatterbox.png" alt="Chatterbox">
+        <h1>Chatterbox</h1>
+    </header>
+    <div class="container">
+        <form action="#" class="login-form">
+            <h2>Login</h2>
+            <div class="input-container">
+                <input type="text" placeholder="Username" required>
+            </div>
+            <div class="input-container">
+                <input type="password" id="password" placeholder="Password" required>
+                <button type="button" id="togglePassword"><i class="ri-eye-fill"></i></button>
+            </div>
+            <div class="remember-me">
+                <input type="checkbox" id="rememberMe">
+                <label for="rememberMe">Remember Me</label>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+    <footer>
+        <p>&copy; 2024 Chatterbox</p>
+    </footer>
+    <script>
+        document.getElementById('togglePassword').addEventListener('click', function() {
+            const passwordInput = document.getElementById('password');
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            this.innerHTML = type === 'password' ? '<i class="ri-eye-fill">' : '<i class="ri-eye-off-fill"></i>';
+        });
+    </script>
+</body>
+</html>
